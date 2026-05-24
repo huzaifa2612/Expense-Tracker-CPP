@@ -1,38 +1,41 @@
-Project Overview
-The Personal Expense Management System is a lightweight, console-based C++ application engineered to streamline daily financial tracking. Designed with practical utility in mind, this tool is highly effective for managing day-to-day finances, whether tracking individual budget allocations or managing shared living expenses in a hostel environment.
+# 💰 Personal Expense Tracker
 
-The system operates entirely through a command-line interface (CLI) and leverages core software engineering principles to ensure data persistence, fault tolerance, and a seamless user experience. By utilizing the C++ Standard Library, the application efficiently records, parses, and aggregates financial data without the need for external database dependencies.
+![C++](https://img.shields.io/badge/C++-11%2B-blue.svg)
+![Build](https://img.shields.io/badge/Build-Passing-success.svg)
+![Contributions](https://img.shields.io/badge/Contributions-Welcome-brightgreen.svg)
 
-✨ Core Functionalities & Technical Implementation
-1. Persistent Data Management (File I/O)
-Implementation: Utilizes the <fstream> library to establish a continuous data flow between the application and a local data.csv file.
+> A lightweight, console-based C++ application engineered to streamline daily financial tracking and budget management using core file handling and string manipulation techniques.
 
-Mechanism: Expenses are appended in real-time (ios::app). When viewing or calculating totals, the system dynamically reads the CSV file line-by-line, ensuring that data remains intact across multiple sessions and system reboots.
+## 📖 Overview
+The **Personal Expense Management System** is highly effective for managing day-to-day finances, whether tracking individual budget allocations or managing shared living expenses in a hostel environment. The system operates entirely through a command-line interface (CLI) and leverages core software engineering principles to ensure data persistence, fault tolerance, and a seamless user experience.
 
-2. Algorithmic Data Parsing
-Implementation: Applies advanced string manipulation techniques using <string> methods.
+## ✨ Core Functionalities & Technical Implementation
+* **Persistent Data Management (File I/O):** Utilizes the `<fstream>` library to establish a continuous data flow. Expenses are appended in real-time (`ios::app`) to a local `data.csv` file, ensuring data remains intact across sessions and system reboots.
+* **Algorithmic Data Parsing:** Reads comma-separated values and utilizes `.find(',')` and `.substr()` functions to accurately isolate item types from prices, parsing them into standard integers (`stoi()`) for reliable arithmetic operations.
+* **Robust Fault Tolerance:** Fortified against user-generated anomalies (e.g., inputting text instead of numbers). Employs stream state verification (`cin.fail()`, `cin.clear()`) and input buffer clearing to prevent infinite loops and runtime crashes.
+* **Streamlined CLI:** Built upon a strictly encapsulated, modular `do-while` control structure and `switch` casing, providing an intuitive and menu-driven user experience.
 
-Mechanism: The application reads comma-separated values and utilizes the .find(',') and .substr() functions to accurately isolate the 'Item Type' from the 'Price'. It then parses the string-based numerical values into standard integers using stoi() for accurate arithmetic operations.
+## 🛠️ Technical Stack
+* **Language:** C++11 (or higher)
+* **Libraries:** `<iostream>`, `<fstream>`, `<string>`, `<limits>`
+* **Architecture:** Procedural / Modular Programming
+* **Storage:** Flat-file database (`.csv`)
 
-3. Robust Error Handling & Fault Tolerance
-Implementation: Integrates stream state verification and input buffer clearing via <limits>.
+## 🚀 Getting Started
 
-Mechanism: The system is fortified against user-generated anomalies (e.g., inputting alphabetical characters when a numerical price is required). By employing cin.fail(), cin.clear(), and cin.ignore(numeric_limits<streamsize>::max(), '\n'), the application prevents infinite loops and runtime crashes, ensuring uninterrupted execution.
+### Prerequisites
+* A standard C++ compiler (e.g., GCC, MinGW)
 
-4. Streamlined Command-Line Interface (CLI)
-Implementation: Built upon a modular do-while control structure and switch casing.
+### Installation & Execution
+```bash
+# 1. Clone the repository
+git clone [https://github.com/huzaifa2612/Expense-Tracker-CPP.git](https://github.com/huzaifa2612/Expense-Tracker-CPP.git)
 
-Mechanism: Provides an intuitive, menu-driven user experience. Functions are strictly encapsulated (addExpense(), viewExpense(), showTotal()), maintaining a clean separation of concerns and keeping the main() execution thread highly readable.
+# 2. Navigate to the project directory
+cd Expense-Tracker-CPP
 
-🛠️ Technical Stack
-Language: C++11 (or higher)
+# 3. Compile the source code
+g++ main.cpp -o expense_tracker
 
-Libraries: <iostream>, <fstream>, <string>, <limits>
-
-Architecture: Procedural / Modular Programming
-
-Storage: Flat-file database (.csv)
-
-👨‍💻 Developer Profile
-
-Muhammad Huzaifa: [Linkedin](https://www.linkedin.com/in/muhammad-huzaifa-55a666308/)
+# 4. Run the application
+./expense_tracker
